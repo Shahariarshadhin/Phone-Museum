@@ -2,8 +2,8 @@ const searchphone = () => {
     //display spinner while loading
     toggleSpinner('block')
         //selecting the required elements
-    const searchfeald = document.getElementById('search-feald');
-    searchvalue = searchfeald.value;
+    const searchfield = document.getElementById('search-field');
+    searchvalue = searchfield.value;
     const phoneBasicscontainer = document.getElementById('product-basic-info')
     const totalphonecontainer = document.getElementById('totalphon')
         // totalphonecontainer.style.display = 'none'
@@ -35,7 +35,7 @@ const searchphone = () => {
             .then(response => response.json())
             .then(data => displayserachresult(data.data))
 
-        searchfeald.value = '';
+        searchfield.value = '';
     }
 
 }

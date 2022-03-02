@@ -25,3 +25,10 @@
 #btnsearch {
     display: block;
 }
+
+#btn-search {
+    background-image: linear-gradient(rgb(221, 91, 91), rgb(236, 182, 82));
+    /* color: aliceblue; */
+    margin-left: 4px;
+    font-weight: 500;
+}
