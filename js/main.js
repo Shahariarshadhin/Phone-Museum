@@ -1,20 +1,21 @@
-const searchphone = () => {
+const searchPhone = () => {
     //display spinner while loading
     toggleSpinner('block')
-        //selecting the required elements
+
+    //selecting the required elements
     const searchfield = document.getElementById('search-field');
     searchvalue = searchfield.value;
     const phoneBasicscontainer = document.getElementById('product-basic-info')
     const totalphonecontainer = document.getElementById('totalphon')
         // totalphonecontainer.style.display = 'none'
 
-    //selecting the required error elements
+    //selecting error elements
     const errorMessageinv = document.getElementById('error-message-inv')
     errorMessageinv.style.display = 'none'
     const errorMessagenull = document.getElementById('error-message-null')
         // totalphonecontainer.style.display = 'none'
 
-    //checking wherher the input value is empty or not
+    //checking whenever the input value is empty or not
     if (searchvalue == '') {
         console.log('msd');
         toggleSpinner('none')
@@ -42,13 +43,13 @@ const searchphone = () => {
 
 
 
-//addding Spinner
+//add Spinner
 const toggleSpinner = (displayPropsp) => {
     document.getElementById('spinner').style.display = displayPropsp;
 
 }
 
-// display the JSON value in ui
+// showing the JSON value in UI
 const displayserachresult = (phones) => {
     console.log(typeof(phones));
     const totalphonecontainer = document.getElementById('totalphon')
@@ -61,7 +62,7 @@ const displayserachresult = (phones) => {
     errorMessagenull.style.display = 'none'
     const errorMessageinv = document.getElementById('error-message-inv')
     errorMessageinv.style.display = 'none'
-        //checking wherher the input value is in the array or not
+        //checking whenever the input value is in the array or not
     if (phones.length == 0) {
         console.log('dsf');
         toggleSpinner('none')
@@ -98,7 +99,7 @@ const displayserachresult = (phones) => {
 }
 
 
-//loading the phoner details from the details api
+//loading the phone details from the details api
 const loadDetails = (slug) => {
     toggleSpinner('block')
     console.log(slug);
@@ -111,7 +112,7 @@ const loadDetails = (slug) => {
 }
 
 
-//displaying the details of the phones in ui
+//showing the details of the phones in UI
 const displayDetails = (details) => {
     console.log(details.data.brand);
     const phoneBasicscontainer = document.getElementById('product-basic-info')
@@ -124,7 +125,7 @@ const displayDetails = (details) => {
     console.log(mainFeatures);
     const div = document.createElement('div')
     div.classList.add('col')
-        // creating the ditails information of the certain phone
+        // creating the details information of the certain phone
     div.innerHTML = `
         <div class="card justify-content-center text-center mx-auto">
             <div class="card-header">
@@ -187,40 +188,33 @@ const displayDetails = (details) => {
         document.getElementById('relesedate').innerText = `Relese Date: ${details.data.releaseDate}`;
     }
 
-    // const productDetails = document.getElementById('tbody')
-    //getting the sensore data one by one
+
+    //let getting the sensore data one by one
     mainFeatures.forEach(feature => {
         const basic_data = document.createElement('p')
         console.log(feature.indexOf(feature));
-        // table_data.classList.add('rounded-3')
-        //creating the table data for sensores
+
         basic_data.innerText = `${feature}
                             `
         basicContainer.appendChild(basic_data)
     })
 
-    // const productDetailsinfo = document.getElementById('tbody-details')
+
     const detailFeatures = details.data.mainFeatures;
     console.log(detailFeatures.chipSet);
-    //getting the sensore data one by one
+    //let getting the sensore data one by one
     Object.keys(detailFeatures).forEach(data => {
         const detail_data = document.createElement('p')
-            // table_data.classList.add('mx-auto')
-            // console.log(feature.indexOf(feature));
-            // table_data.classList.add('table-secondary')
-            //creating the table data for sensores
+
         detail_data.innerText = `${data} : ${detailFeatures[data]}`
         detailsContainer.appendChild(detail_data)
     })
 
-
-    // const productotherinfo = document.getElementById('tbody-other')
     const otherFeatures = details.data.others;
     if (otherFeatures == undefined) {
         const other_data = document.createElement('p')
-            // console.log(feature.indexOf(feature));
-            // table_data.classList.add('table-secondary')
-            //creating the table data for sensores
+
+        //creating the table data for sensores
         other_data.innerText = `Sorry others data not found!❌`
         otherContainer.appendChild(other_data)
     } else {
@@ -228,9 +222,8 @@ const displayDetails = (details) => {
         //getting the sensore data one by one
         Object.keys(otherFeatures).forEach(data => {
             const other_data = document.createElement('p')
-                // console.log(feature.indexOf(feature));
-                // table_data.classList.add('table-secondary')
-                //creating the table data for sensores
+
+            //creating the table data for sensores
             other_data.innerHTML = `${data}: ${otherFeatures[data]}`
             otherContainer.appendChild(other_data)
         })
