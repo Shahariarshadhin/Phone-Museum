@@ -27,10 +27,10 @@ const searchPhone = () => {
         phoneBasicscontainer.style.display = 'block'
         totalphonecontainer.style.display = 'block'
         errorMessagenull.style.display = 'none'
-        console.log(searchvalue);
-        //loading the api
+            // console.log(searchvalue);
+            //loading the api
         const url = `https://openapi.programming-hero.com/api/phones?search=${searchvalue}`
-        console.log(url);
+            // console.log(url);
 
         fetch(url)
             .then(response => response.json())
@@ -51,20 +51,20 @@ const toggleSpinner = (displayPropsp) => {
 
 // showing the JSON value in UI
 const displayserachresult = (phones) => {
-    console.log(typeof(phones));
+    // console.log(typeof(phones));
     const totalphonecontainer = document.getElementById('totalphon')
     const phonecontainer = document.getElementById('phonecontainer')
     phonecontainer.innerHTML = '';
     const phoneBasicscontainer = document.getElementById('product-basic-info')
     phoneBasicscontainer.innerHTML = '';
-    console.log(phones);
+    // console.log(phones);
     const errorMessagenull = document.getElementById('error-message-null')
     errorMessagenull.style.display = 'none'
     const errorMessageinv = document.getElementById('error-message-inv')
     errorMessageinv.style.display = 'none'
         //checking whenever the input value is in the array or not
     if (phones.length == 0) {
-        console.log('dsf');
+        // console.log('dsf');
         toggleSpinner('none')
         phoneBasicscontainer.style.display = 'none'
         totalphonecontainer.style.display = 'none'
@@ -73,7 +73,7 @@ const displayserachresult = (phones) => {
         // totalphonecontainer.style.display='block'
         errorMessageinv.style.display = 'none'
         phones.slice(0, 20).forEach((phone) => {
-            console.log(phone);
+            // console.log(phone);
             const div = document.createElement('div')
             div.classList.add('col')
                 //creating the element for search results
@@ -102,9 +102,9 @@ const displayserachresult = (phones) => {
 //loading the phone details from the details api
 const loadDetails = (slug) => {
     toggleSpinner('block')
-    console.log(slug);
+        // console.log(slug);
     const url = ` https://openapi.programming-hero.com/api/phone/${slug}`
-    console.log(url);
+        // console.log(url);
 
     fetch(url)
         .then(response => response.json())
@@ -114,15 +114,15 @@ const loadDetails = (slug) => {
 
 //showing the details of the phones in UI
 const displayDetails = (details) => {
-    console.log(details.data.brand);
+    // console.log(details.data.brand);
     const phoneBasicscontainer = document.getElementById('product-basic-info')
     phoneBasicscontainer.style.display = 'block'
     phoneBasicscontainer.innerHTML = '';
 
-    console.log(details.data.image);
+    // console.log(details.data.image);
     const mainFeatures = details.data.mainFeatures.sensors;
 
-    console.log(mainFeatures);
+    // console.log(mainFeatures);
     const div = document.createElement('div')
     div.classList.add('col')
         // creating the details information of the certain phone
@@ -168,7 +168,7 @@ const displayDetails = (details) => {
           </div>
       
         `
-    console.log(details);
+        // console.log(details);
 
     phoneBasicscontainer.appendChild(div)
 
@@ -192,7 +192,7 @@ const displayDetails = (details) => {
     //let getting the sensore data one by one
     mainFeatures.forEach(feature => {
         const basic_data = document.createElement('p')
-        console.log(feature.indexOf(feature));
+            // console.log(feature.indexOf(feature));
 
         basic_data.innerText = `${feature}
                             `
@@ -201,7 +201,7 @@ const displayDetails = (details) => {
 
 
     const detailFeatures = details.data.mainFeatures;
-    console.log(detailFeatures.chipSet);
+
     //let getting the sensore data one by one
     Object.keys(detailFeatures).forEach(data => {
         const detail_data = document.createElement('p')
@@ -218,7 +218,7 @@ const displayDetails = (details) => {
         other_data.innerText = `Sorry others data not found!❌`
         otherContainer.appendChild(other_data)
     } else {
-        console.log(otherFeatures);
+        // console.log(otherFeatures);
         //getting the sensore data one by one
         Object.keys(otherFeatures).forEach(data => {
             const other_data = document.createElement('p')
