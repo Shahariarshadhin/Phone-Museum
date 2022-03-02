@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="css/style.css" />
+    <link rel="stylesheet" href="css/bootstrap.min.css" />
+    <script src="https://kit.fontawesome.com/7141690ecf.js" crossorigin="anonymous"></script>
+    <title>Phone Museum</title>
+
+</head>
+
+<body class="initial-section">
+    <!-- herder section starts  -->
+    <header>
+        <h1 class="text-center m-5 fs-1 fst-italic fw-bolder">Phone Museum</h1>
+    </header>
+    <!-- herder section starts  -->
+
+    <!-- main section starts  -->
+    <main class="container border border-5 border-gray">
+        <!-- search feald starts -->
+        <div class="input-group m-5 w-75 mx-auto">
+            <input id="search-feald" type="text" class="form-control" placeholder="Search the phone you want" aria-label="Search the phone you want" aria-describedby="button-addon2" />
+            <button id="btn-search" class="btn btn-outline-secondary" type="button" id="button-addon2" onclick="searchphone()">
+          
+        Search
+        </button>
+        </div>
+        <!-- search feald Ends -->
+
+        <!-- Spinner feald Starts -->
+        <div id="spinner" class="spinner mx-auto text-center">
+            <div class="spinner-border" role="status">
+                <span class="visually-hidden">Loading...</span>
+            </div>
+        </div>
+        <!-- Spinner feald Ends -->
+
+        <!-- Error feald Starts -->
+        <div class="errormessages">
+            <div id="error-message-inv" class="bg-light text-black fw-bold text-center mx-auto">
+                Search Result Not found
+            </div>
+            <div id="error-message-null" class="bg-light text-black fw-bold text-center mx-auto">
+                Type the phone name in the searchbar!
+            </div>
+        </div>
+        <!-- Error feald Ends -->
+
+        <!-- product basic info starts -->
+        <div class="d-grid m-5">
+            <div class="text-center" id="product-basic-info" name="top" class="row row-cols-1"></div>
+        </div>
+        <!-- product basic info Ends -->
+
+        <!-- search results starts -->
+        <div id="totalphon" class="m-4 pt-3 pb-3">
+            <div class="d-grid">
+                <div id="phonecontainer" class="row row-cols-1 row-cols-sm-2 row-cols-md-2 row-cols-lg-3 g-4"></div>
+            </div>
+        </div>
+        <!-- search results Ends -->
+
+
+        <!-- show more results Starts -->
+        <div class="showMore text-center">
+            <a id="showmorephon" class="text-primary text-decoration-none" href="">
+                <p>Show more<i class="ms-2 fa fa-arrow-circle-right"></i></p>
+            </a>
+        </div>
+        <!-- show more results Ends -->
+    </main>
+    <!-- main section ends  -->
+    <script src="js/main.js"></script>
+    <script src="js/bootstrap.min.js"></script>
+</body>
+
+</html>
